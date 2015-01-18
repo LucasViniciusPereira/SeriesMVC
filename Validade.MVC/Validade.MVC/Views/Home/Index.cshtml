@@ -1,0 +1,57 @@
+﻿@model Validade.MVC.Models.Pessoa
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Validação de Formulário</h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(x => x.Nome)
+    </div>
+    <div>
+        @Html.TextBoxFor(x =>x.Nome)
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Idade)
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.Idade)
+        @Html.ValidationMessageFor(x => x.Idade)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Email)
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.Email)
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Senha)
+    </div>
+    <div>
+        @Html.PasswordFor(x => x.Senha)
+        @Html.ValidationMessageFor(x => x.Senha)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.ConfirmarSenha)
+    </div>
+    <div>
+        @Html.PasswordFor(x => x.ConfirmarSenha)
+        @Html.ValidationMessageFor(x => x.ConfirmarSenha)
+    </div>
+    
+    <br />
+    
+    <input type="submit" value="Enviar" />
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

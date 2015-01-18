@@ -1,0 +1,14 @@
+﻿@model Rotas.MVC.Models.Noticia
+@{
+    ViewBag.Title = ViewBag.Noticia;
+}
+
+<div>
+    <h3>@Model.Titulo</h3>
+
+    <small>@Model.Data</small>
+
+    <p>@Model.Conteudo</p>
+
+    @Html.ActionLink("Voltar", "Index", "Home")
+</div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Rotas.MVC.Models.Noticia>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h4>Portal de noticias</h4>
+<p>Utilizando rotas na URL'S criando url's amigaveis, repare na url's, você vai gostar...</p>
+
+<ul>
+    @foreach (string item in ViewBag.Categorias)
+    {
+        <li>@Html.ActionLink(item, "MostraCategoria", "Home", new { @categoria = item }, null)</li>
+    }
+</ul>
+<br />
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.ActionLink(item.Titulo, "MostraNoticia", "Home", new
+            {
+                @NoticiaID = item.NoticiaID,
+                @Categoria = item.Categoria
+            },null)
+            <em>@Html.DisplayFor(x => item.Categoria)</em>
+            <b>@Html.DisplayFor(x => item.Data)</b>
+        </li>
+    }
+</ul>
+
+@Html.ActionLink("Todas as Noticias", "TodasNoticias", "Home")
